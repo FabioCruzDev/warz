@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:15
+    restart: unless-stopped
+    network_mode: host
+    shm_size: 2gb
+    expose:
+      - 5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    volumes:
+      - ./.postgres-volume:/var/lib/postgresql/data
+      - ./contrib/pg_hba.conf:/etc/postgresql/pg_hba.conf
