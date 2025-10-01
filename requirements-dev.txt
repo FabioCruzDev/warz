@@ -1,0 +1,3 @@
+# Tests
+django-test-without-migrations
+model-bakery

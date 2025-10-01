@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,8 +40,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'warz.core.apps.CoreConfig',
 ]
+
+EXTRA_APPS = [
+    'test_without_migrations'
+]
+
+PROJECT_APPS = [
+    'warz.core',
+    'warz.player',
+]
+
+INSTALLED_APPS += EXTRA_APPS
+INSTALLED_APPS += PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,4 +137,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#AUTH_USER_MODEL = 'core.Player'
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
+
+MEDIA_URL = '/media/'
+
+DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE', default='django.core.files.storage.FileSystemStorage')
+
+if DEFAULT_FILE_STORAGE == 'django.core.files.storage.FileSystemStorage':
+    MEDIA_ROOT = config('MEDIA_ROOT', default=os.path.join(BASE_DIR, 'warz/media'))

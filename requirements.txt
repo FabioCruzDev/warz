@@ -2,3 +2,4 @@ python-decouple==3.8
 django
 dj-database-url
 psycopg2-binary
+Pillow
