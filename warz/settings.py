@@ -43,12 +43,14 @@ INSTALLED_APPS = [
 ]
 
 EXTRA_APPS = [
-    'test_without_migrations'
+    'test_without_migrations',
+    'django_extensions',
 ]
 
 PROJECT_APPS = [
     'warz.core',
     'warz.player',
+    'warz.buildings',
 ]
 
 INSTALLED_APPS += EXTRA_APPS
