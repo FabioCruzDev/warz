@@ -1,8 +1,8 @@
 from django.db import models
 
-from warz.buildings.models.base import BuildingBase
+from warz.buildings.models.base import AbstractBuilding
 
-class Housing(BuildingBase):
+class Housing(AbstractBuilding):
     base_population_capacity = models.IntegerField(default=100)
 
     def get_capacity(self):
@@ -12,3 +12,6 @@ class Housing(BuildingBase):
         """
         factor = 1.3
         return int(self.base_population_capacity * (factor ** (self.level - 1)))
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=['village'], name='unique_housing_village')]

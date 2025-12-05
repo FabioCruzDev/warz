@@ -1,7 +1,11 @@
 
 
-from warz.buildings.models.base import BuildingBase
+from warz.buildings.models.base import AbstractBuilding
+from django.db import models
 
 
-class Wall(BuildingBase):
+class Wall(AbstractBuilding):
     pass
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=['village'], name='unique_wall_village')]

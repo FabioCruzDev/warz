@@ -1,4 +1,10 @@
-from warz.buildings.models.base import BuildingBase
+from warz.buildings.models.base import AbstractBuilding
+from django.db import models
 
-class LumberMill(BuildingBase):
+class LumberMill(AbstractBuilding):
     pass
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['village'], name='unique_lumbermill_village')
+        ]

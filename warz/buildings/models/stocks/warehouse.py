@@ -1,6 +1,6 @@
 
-from warz.buildings.models.base import BuildingBase
+from warz.buildings.models.base import AbstractBuilding
 
 
-class Warehouse(BuildingBase):
+class Warehouse(AbstractBuilding):
     pass

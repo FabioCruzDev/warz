@@ -28,9 +28,9 @@ __all__ = [
 	# headquarters
 	'Headquarters',
 	# combat
-	'Academy', 'Barracks', 'House', 'Stable', 'Wall', 'Watchtower',
+	'Academy', 'Barracks', 'Housing', 'Stable', 'Wall', 'Watchtower',
 	# resources
-	'ClayFarm', 'Farm', 'IronMine', 'Lumbermill', 'Quarry',
+	'ClayFarm', 'Farm', 'IronMine', 'LumberMill', 'Quarry',
 	# stocks
 	'Granary', 'Market', 'Warehouse',
 ]
