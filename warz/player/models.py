@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
-from warz.core.models import AbstractBaseModel, models
+from django.db import models
+from warz.core.models import AbstractBaseModel
 from uuid import uuid4
 
 User = get_user_model()
